@@ -1,4 +1,4 @@
-# Login y CRUD
+# Challenge Better Technologies - Login y CRUD 
 
 Challenge de react para Better Technologies. \
 ARCHIVO: https://drive.google.com/drive/folders/1CHrSFpErwSEMMtOyCykCGpW0VcGl17CA
@@ -28,4 +28,7 @@ para pequeño enrutamiento y navegación entre login y crud
 
 #### tailwind:
 
-para diseño \
+para diseño 
+
+#### postman:
+para ver endpoints y mas de la api
