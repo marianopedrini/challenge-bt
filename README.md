@@ -8,6 +8,12 @@ Challenge de react para Better Technologies.
   npm start
 ```
 
+## Ideas sin concretar
+
+useReducer para el manejo del estado de las especialidades. \
+Edición de especialidad. \
+Busqueda por id de especialidad.
+
 ## Tecnologias usadas
 
 #### axios:
