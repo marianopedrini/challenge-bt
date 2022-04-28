@@ -4,7 +4,9 @@ Challenge de react para Better Technologies. \
 ARCHIVO: https://drive.google.com/drive/folders/1CHrSFpErwSEMMtOyCykCGpW0VcGl17CA
 
 ## Correr proyecto
-
+```bash
+  npm install
+```
 ```bash
   npm start
 ```
