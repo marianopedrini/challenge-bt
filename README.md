@@ -12,7 +12,8 @@ Challenge de react para Better Technologies.
 
 useReducer para el manejo del estado de las especialidades. \
 Edición de especialidad. \
-Busqueda por id de especialidad.
+Busqueda por id de especialidad. \
+Mejora de la calidad del codigo.
 
 ## Tecnologias usadas
 
