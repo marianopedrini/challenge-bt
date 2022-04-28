@@ -5,17 +5,16 @@ import Login from '../pages/Login';
 import Crud from '../pages/Crud';
 
 const MainRoutes = () => {
-  const [user, setUser] = useState({});
+  const [token, setToken] = useState({});
 
   useEffect(() => {
-    if (localStorage.getItem('data')) {
-      setUser(JSON.parse(localStorage.getItem('data')));
-      //   console.log(localStorage.getItem('data'));
+    if (localStorage.getItem('token')) {
+      setToken(localStorage.getItem('token'));
     }
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={token}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

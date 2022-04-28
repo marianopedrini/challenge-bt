@@ -9,13 +9,13 @@ const Login = () => {
     password: '',
     typeUser: '',
   });
+  const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   const baseUrl =
     'https://xyfjdr4uvj.execute-api.us-east-1.amazonaws.com/dev/ave-auth/api/v1/auth/login';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const handleSubmit = (e) => {
@@ -32,17 +32,19 @@ const Login = () => {
       password: formData.password,
       type_user: formData.typeUser,
     };
+    setLoading(true);
 
     const loginData = axios.post(baseUrl, bodyParams).then((res) => {
       if (!res.data.token) {
         alert(res.data.error);
+        setLoading(false);
       }
       if (res.data.token) {
-        localStorage.setItem('data', JSON.stringify(res.data));
+        localStorage.setItem('token', res.data.token);
+        setLoading(false);
         return navigate('/admin');
       }
     });
-    console.log(loginData);
   };
 
   return (
@@ -74,15 +76,24 @@ const Login = () => {
               value={formData.typeUser}
               handleChange={handleChange}
             />
-
-            <button
-              type="submit"
-              className="inline-block px-7 py-3 bg-cyan-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-cyan-600 hover:shadow-lg focus:bg-cyan-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-700 active:shadow-lg transition duration-150 ease-in-out w-full"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-            >
-              Sign in
-            </button>
+            {!loading ? (
+              <button
+                type="submit"
+                className="inline-block px-7 py-3 bg-cyan-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-cyan-600 hover:shadow-lg focus:bg-cyan-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-700 active:shadow-lg transition duration-150 ease-in-out w-full"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+              >
+                Sign in
+              </button>
+            ) : (
+              <button
+                className="inline-block px-7 py-3 bg-cyan-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-cyan-600 hover:shadow-lg focus:bg-cyan-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-cyan-700 active:shadow-lg transition duration-150 ease-in-out w-full"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+              >
+                Enviando...
+              </button>
+            )}
           </form>
         </div>
       </div>
